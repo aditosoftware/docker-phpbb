@@ -17,5 +17,6 @@ RUN \
   && sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/phpBB3#g' /etc/apache2/apache2.conf
 
 ADD start.sh /a/start.sh
+RUN chmod 777 /a/start.sh
 
 CMD ["/a/start.sh"]
