@@ -1,8 +1,8 @@
-FROM php:5.5-apache
+FROM php:5.6-apache
 
 ENV PHPBB_DIR /var/www/phpBB3
 
-ENV DL_LINK="http://downloads.phpbb.de/pakete/deutsch/3.1/3.1.5/phpBB-3.1.5-deutsch.zip"
+ENV DL_LINK="http://downloads.phpbb.de/pakete/deutsch/3.1/3.1.6/phpBB-3.1.6-deutsch.zip"
 
 RUN \
   apt-get update \
