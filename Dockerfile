@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:5.5-apache
 
 ENV PHPBB_DIR /var/www/phpBB3
 
