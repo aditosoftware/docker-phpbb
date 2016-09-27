@@ -14,7 +14,7 @@ RUN \
   wget -P /tmp ${DL_LINK} \
   && unzip -q /tmp/phpBB*.zip -d /var/www \
   && rm -rf /tmp/* \
-  && sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/phpBB3#g' /etc/apache2/apache2.conf
+  && sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/phpBB3#g' /etc/apache2/sites-available/000-default.conf
 
 ADD start.sh /a/start.sh
 RUN chmod +x /a/start.sh
