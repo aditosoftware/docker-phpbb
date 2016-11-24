@@ -2,7 +2,7 @@ FROM php:5.5-apache
 
 ENV PHPBB_DIR /var/www/phpBB3
 
-ENV DL_LINK="http://downloads.phpbb.de/pakete/deutsch/3.1/3.1.9/phpBB-3.1.9-deutsch.zip"
+ENV DL_LINK="http://downloads.phpbb.de/pakete/deutsch/3.1/3.1.10/phpBB-3.1.10-deutsch.zip"
 
 RUN \
   apt-get update \
@@ -19,4 +19,4 @@ RUN \
 ADD start.sh /a/start.sh
 RUN chmod +x /a/start.sh
 
-CMD ["/a/start.sh"]
+CMD ["apache2-foreground"]
