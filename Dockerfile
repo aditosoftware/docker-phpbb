@@ -16,7 +16,4 @@ RUN \
   && rm -rf /tmp/* \
   && sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/phpBB3#g' /etc/apache2/sites-available/000-default.conf
 
-ADD start.sh /a/start.sh
-RUN chmod +x /a/start.sh
-
 CMD ["apache2-foreground"]
