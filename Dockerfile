@@ -1,19 +1,15 @@
-FROM php:5.5-apache
+FROM php:7.1-apache
 
-ENV PHPBB_DIR /var/www/phpBB3
-
-ENV DL_LINK="http://downloads.phpbb.de/pakete/deutsch/3.1/3.1.10/phpBB-3.1.10-deutsch.zip"
+ADD ./start.sh /start.sh
 
 RUN \
-  apt-get update \
+  chmod +x /start.sh \
+  && apt-get update \
   && apt-get install -y wget ssmtp vim unzip imagemagick libpng12-dev mysql-client \
   && docker-php-ext-install gd mysqli \
-  && rm -rf /var/lib/apt/lists/*
-
-RUN \
-  wget -P /tmp ${DL_LINK} \
+  && wget -P /tmp "https://www.phpbb.com/files/release/phpBB-3.2.1.zip" \
   && unzip -q /tmp/phpBB*.zip -d /var/www \
-  && rm -rf /tmp/* \
-  && sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/phpBB3#g' /etc/apache2/sites-available/000-default.conf
+  && sed -i 's#DocumentRoot /var/www/html#DocumentRoot /var/www/phpBB3#g' /etc/apache2/sites-available/000-default.conf \
+  && rm -rf /tmp/* /var/lib/apt/lists/*
 
-CMD ["apache2-foreground"]
+CMD ["/start.sh"]
